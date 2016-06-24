@@ -1,3 +1,7 @@
+- Category.all.each do |category|
+  = link_to category.name, weekday_products_path(category: category.name)
+
+
 - if @products.present?
   - @products.each do |product|
     %h2= link_to product.title.humanize, [weekday, product]

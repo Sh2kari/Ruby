@@ -2,7 +2,12 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = weekday.products
+    if params[:category].blank?
+      @products = weekday.products
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @products = weekday.products.where(category_id: @category_id)
+    end
   end
 
   def new
@@ -48,7 +53,7 @@ class ProductsController < ApplicationController
   helper_method :weekday
 
   def product_params
-    params.require(:product).permit(:title, :price)
+    params.require(:product).permit(:title, :price, :category_id)
   end
 
   def find_product
