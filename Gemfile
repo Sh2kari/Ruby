@@ -9,6 +9,8 @@ gem 'pg', '~> 0.15'
 gem 'rails_12factor', '0.0.2'
 
 gem 'simple_form', '~> 3.2'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.4'
 
 gem 'haml', '~> 4.0'
 

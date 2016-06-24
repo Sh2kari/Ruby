@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    %title JetRuby
+  %body
+    = render 'layouts/partials/header'
+    .container
+      - flash.each do |name, msg|
+        = content_tag(:div,msg, class: "alert alert-info")
+      = yield
