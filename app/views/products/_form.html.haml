@@ -1,0 +1,6 @@
+.box-body
+  .form-group
+    = simple_form_for [weekday, product], html: { multipart: true } do |f|
+      = f.input :title
+      = f.input :price
+      = f.button :submit, class: 'btn btn-primary'

@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623215337) do
+ActiveRecord::Schema.define(version: 20160624112117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "price"
+    t.integer  "weekday_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "products", ["weekday_id"], name: "index_products_on_weekday_id", using: :btree
 
   create_table "weekdays", force: :cascade do |t|
     t.string   "title"

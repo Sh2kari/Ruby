@@ -1,0 +1,8 @@
+- if @products.present?
+  - @products.each do |product|
+    %h2= link_to product.title.humanize, [weekday, product]
+    %p= product.price
+- else
+  %h2 No products
+
+= link_to 'New Product', new_weekday_product_path
