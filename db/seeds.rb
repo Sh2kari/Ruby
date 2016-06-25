@@ -17,7 +17,7 @@ weekdays = Weekday.create([{ title: 'Monday',    cover: File.open(Rails.root + '
 
 categories = Category.create([{ name: 'First course' },
                               { name: 'Second course' },
-                              { name: 'Third course' }
+                              { name: 'Drinks' }
                             ])
 
 products = Product.create([{ title: 'Vegan Chickpea Soup', price: '10', weekday_id: 1, category_id: 1 },

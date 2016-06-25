@@ -1,30 +1,23 @@
 class WeekdaysController < ApplicationController
-  before_action :find_weekday, only: [:show, :destroy]
+  before_action :find_weekday, only: :show
 
   def index
     @weekdays = Weekday.all
-  end
-
-  def new
-    @weekday = Weekday.new
   end
 
   def create
     @weekday = Weekday.new(weekday_params)
 
     if @weekday.save
+      flash[:success] = 'Weekday was created.'
       redirect_to @weekday
     else
-      render :new
+      flash[:error] = 'Weekday was not created.'
+      redirect_to root_path
     end
   end
 
   def show
-  end
-
-  def destroy
-    @weekday.destroy
-    redirect_to root_path, notice: 'Successfully deleted weekday'
   end
 
   private

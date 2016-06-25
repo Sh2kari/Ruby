@@ -1,9 +1,7 @@
 .box-body
   .form-group
     = simple_form_for [weekday, product], html: { multipart: true } do |f|
-      = f.collection_select :category_id, Category.all, :id, :name, { prompt: 'Choose a category' }
-      %br/
-      %br/
+      = f.association :category, :include_blank => false
       = f.input :title
       = f.input :price
       = f.button :submit, class: 'btn btn-primary'

@@ -2,12 +2,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:category].blank?
-      @products = weekday.products
-    else
-      @category_id = Category.find_by(name: params[:category]).id
-      @products = weekday.products.where(category_id: @category_id)
-    end
+    @products = weekday.products.group_by(&:category)
   end
 
   def new
