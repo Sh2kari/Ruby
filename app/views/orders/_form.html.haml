@@ -1,0 +1,7 @@
+.box-body
+  .form-group
+    = simple_form_for [weekday, order], html: { multipart: true } do |f|
+      - Category.all.each do |category|
+
+        = f.association :products, label: category.name, collection: @products.where(category: category), :label_method => lambda { |product| "#{product.title}, #{number_to_currency(product.price, locale: :ru)}" }
+      = f.button :submit, class: 'btn btn-primary'

@@ -8,7 +8,7 @@
               .thumbnail.text-center
                 .caption
                   %p= image_tag weekday.cover.url
-                %li= link_to weekday.title.humanize, weekday_products_path(weekday), class: 'active'
+                %li= link_to weekday.title.humanize, new_weekday_order_path(weekday), class: 'active'
 
       - else
         %h2 No weekdays

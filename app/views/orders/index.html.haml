@@ -1,10 +1,13 @@
 %h1 Listing Orders
-%table
-  %thead
-    %tr
-      %th{:colspan => "3"}
-  %tbody
-    - @orders.each do |order|
-      - order.order_products.each do |order|
-        %tr
-          %td= order.product.title
+%ul.nav.navbar-nav
+  - @orders.each do |order|
+    - order.order_products.each do |order|
+      %li= order.product.title
+      %br
+      %li= number_to_currency(order.product.price, locale: :ru)
+      %br
+    %br
+    %p
+      %strong Total Price:
+      = number_to_currency(order.total_price, locale: :ru)
+    %hr
