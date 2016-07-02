@@ -13,6 +13,7 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.4'
 
 gem 'haml', '~> 4.0'
+gem 'html2haml'
 
 gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -21,6 +22,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+
+gem 'devise'
 
 gem 'rubocop', '~> 0.37.2'
 gem 'sdoc', '~> 0.4.0', group: :doc

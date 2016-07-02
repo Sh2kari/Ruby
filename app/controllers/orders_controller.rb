@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @orders = weekday.orders
   end
@@ -9,7 +11,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @products = weekday.products
     @order = weekday.orders.build(order_params)
 
     if @order.save

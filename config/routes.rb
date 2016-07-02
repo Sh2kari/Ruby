@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  resources :weekdays, only: [:index, :show] do
+  root 'weekdays#index'
+
+  devise_for :users
+
+  resources :weekdays, only: :index do
     resources :products
     resources :orders, only: [:index, :new, :create]
   end
 
-  root 'weekdays#index'
+  namespace :users do
+    resources :profile, only: [:edit, :update], controller: :profile
+  end
 end

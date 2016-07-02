@@ -41,6 +41,7 @@ GEM
     ast (2.3.0)
     autoprefixer-rails (6.3.6.2)
       execjs
+    bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
@@ -79,6 +80,12 @@ GEM
     concurrent-ruby (1.0.2)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
+    devise (4.1.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
@@ -97,6 +104,11 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
+    html2haml (2.0.0)
+      erubis (~> 2.7.0)
+      haml (~> 4.0.0)
+      nokogiri (~> 1.6.0)
+      ruby_parser (~> 3.5)
     i18n (0.7.0)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -122,6 +134,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    orm_adapter (0.5.0)
     parser (2.3.1.2)
       ast (~> 2.2)
     pg (0.18.4)
@@ -163,6 +176,8 @@ GEM
     rake (11.2.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    responders (2.2.0)
+      railties (>= 4.2.0, < 5.1)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -187,6 +202,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 0.3)
     ruby-progressbar (1.8.1)
+    ruby_parser (3.8.2)
+      sexp_processor (~> 4.1)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -197,6 +214,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sexp_processor (4.7.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simple_form (3.2.1)
@@ -221,6 +239,8 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicode-display_width (0.3.1)
     uniform_notifier (1.10.0)
+    warden (1.2.6)
+      rack (>= 1.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -242,10 +262,12 @@ DEPENDENCIES
   carrierwave (~> 0.10.0)
   coffee-rails (~> 4.1.0)
   database_cleaner
+  devise
   dotenv-rails
   factory_girl_rails
   faker
   haml (~> 4.0)
+  html2haml
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick (~> 4.4)

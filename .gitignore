@@ -16,6 +16,8 @@
 !/log/.keep
 /tmp
 
+.env
+
 .rubocop.yml
 .ruby-version
 

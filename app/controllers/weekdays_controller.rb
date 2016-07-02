@@ -1,6 +1,4 @@
 class WeekdaysController < ApplicationController
-  before_action :find_weekday, only: :show
-
   def index
     @weekdays = Weekday.all
   end
@@ -17,16 +15,9 @@ class WeekdaysController < ApplicationController
     end
   end
 
-  def show
-  end
-
   private
 
   def weekday_params
     params.require(:weekday).permit(:title, :cover)
-  end
-
-  def find_weekday
-    @weekday = Weekday.find(params[:id])
   end
 end
