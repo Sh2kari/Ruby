@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'weekdays#index'
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   resources :weekdays, only: :index do
     resources :products

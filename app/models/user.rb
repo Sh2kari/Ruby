@@ -1,11 +1,15 @@
 class User < ActiveRecord::Base
-  after_create :create_user_profile
+  include Omniauthable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook, :twitter]
+
+  after_create :create_user_profile
 
   has_one :profile, dependent: :destroy
+  has_many :social_profiles
 
   has_many :orders
 

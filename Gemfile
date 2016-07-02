@@ -23,6 +23,10 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
 gem 'devise'
 
 gem 'rubocop', '~> 0.37.2'
