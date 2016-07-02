@@ -1,3 +1,8 @@
 %h1 Choose only one item from each course
 = render 'form', weekday: weekday, order: @order
+
+- if can? :manage, Product
+	= link_to 'Add Product |', new_weekday_product_path
+
 = link_to 'Back', root_path
+

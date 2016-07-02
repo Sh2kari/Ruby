@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
   before_filter :authenticate_user!
+  authorize_resource only: :index
 
   def index
-    @orders = weekday.orders
+    @orders = weekday.orders.includes(order_products: :product).includes(:user)
   end
 
   def new

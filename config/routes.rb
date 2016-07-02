@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   resources :weekdays, only: :index do
-    resources :products
+    resources :products, only: [:new, :create]
     resources :orders, only: [:index, :new, :create]
   end
 
   namespace :users do
-    resources :profile, only: [:edit, :update], controller: :profile
+    resources :profile, only: [:index, :edit, :update], controller: :profile
   end
 end

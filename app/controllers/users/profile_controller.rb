@@ -1,4 +1,10 @@
 class Users::ProfileController < Users::BaseController
+  authorize_resource only: :index
+
+  def index
+    @users = User.all.includes(:profile)
+  end
+
   def edit
   end
 

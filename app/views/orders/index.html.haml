@@ -1,4 +1,4 @@
-%h1 Listing Orders
+%h1 Listing Orders #{weekday.title}
 %ul.nav.navbar-nav
   - @orders.each do |order|
     - order.order_products.each do |order|
@@ -13,4 +13,8 @@
       %br
       %strong Total Price:
       = number_to_currency(order.total_price, locale: :ru)
-    %hr
+      %hr
+
+  %h4
+    %strong Summary:
+    = number_to_currency(@orders.sum(:price), locale: :ru)

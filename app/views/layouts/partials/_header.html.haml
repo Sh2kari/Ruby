@@ -2,9 +2,13 @@
   .container
     = link_to 'JetRuby Lunch', root_path, class: 'navbar-brand'
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-left
+        - if can? :manage, User
+          %li= link_to 'Show Users', users_profile_index_path
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          %li= link_to 'Edit Profile', edit_users_profile_path(:user)
+          - if can? :edit, Profile
+            %li= link_to 'Edit Profile', edit_users_profile_path(:user)
           %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
         - else
           %li= link_to 'Sign Up', new_user_registration_path, class: 'active'

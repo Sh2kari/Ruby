@@ -1,10 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :find_product, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @products = weekday.products.group_by(&:category)
-  end
+  authorize_resource only: [:new, :create]
 
   def new
     @product = weekday.products.build
@@ -15,30 +11,10 @@ class ProductsController < ApplicationController
 
     if @product.save
       flash[:success] = 'Product was created.'
-      redirect_to weekday_products_path
+      redirect_to new_weekday_order_path
     else
       render :new
     end
-  end
-
-  def show
-  end
-
-  def edit
-  end
-
-  def update
-    if @product.update(product_params)
-      flash[:success] = 'Product was updated.'
-      redirect_to weekday_products_path
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @product.destroy
-    redirect_to weekday_products_path, notice: 'Product was deleted'
   end
 
   private
@@ -50,9 +26,5 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:title, :price, :category_id)
-  end
-
-  def find_product
-    @product = weekday.products.find(params[:id])
   end
 end

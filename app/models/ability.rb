@@ -1,0 +1,11 @@
+class Ability
+  include CanCan::Ability
+
+  def initialize(user)
+    user ||= User.new # guest user (not logged in)
+
+    can :manage, :all if user.has_role? :admin
+
+    can :edit, Profile if user.has_role? :user
+  end
+end

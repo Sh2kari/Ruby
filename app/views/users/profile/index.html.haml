@@ -1,0 +1,20 @@
+%h1 Listing Users
+%ul.nav.navbar-nav
+  - @users.each do |user|
+    %li
+      %strong Name:
+      = user.name
+    %br
+    %li
+      %strong Email:
+      = user.email
+    %br
+    %li
+      %strong First name:
+      = user.first_name
+    %br
+    %li
+      %strong Last name:
+      = user.last_name
+    %br
+    %hr
