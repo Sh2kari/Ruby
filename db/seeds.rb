@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+organizations = Organization.create([{ name: 'JetRuby' },
+                                     { name: 'Google' },
+                                     { name: 'Yandex' }
+                                    ])
+
 weekdays = Weekday.create([{ title: 'Monday',    cover: File.open(Rails.root + 'app/assets/images/1.jpg') },
                            { title: 'Tuesday',   cover: File.open(Rails.root + 'app/assets/images/2.jpg') },
                            { title: 'Wednesday', cover: File.open(Rails.root + 'app/assets/images/3.jpg') },

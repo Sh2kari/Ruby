@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   after_create :create_user_profile
   after_create :set_role!
 
+  belongs_to :organization
+
   has_one :profile, dependent: :destroy
   has_many :social_profiles
 

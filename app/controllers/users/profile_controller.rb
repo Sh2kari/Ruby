@@ -2,7 +2,7 @@ class Users::ProfileController < Users::BaseController
   authorize_resource only: :index
 
   def index
-    @users = User.all.includes(:profile)
+    @organizations = Organization.all.includes(:users).includes(users: :profile)
   end
 
   def edit
@@ -20,7 +20,7 @@ class Users::ProfileController < Users::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation,
+    params.require(:user).permit(:organization_id, :name, :email, :password, :password_confirmation,
                                  profile_attributes: [:first_name, :last_name])
   end
 end
