@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  resourcify
+  rolify
+
   include Omniauthable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -7,6 +10,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook, :twitter]
 
   after_create :create_user_profile
+  after_create :set_role!
 
   has_one :profile, dependent: :destroy
   has_many :social_profiles
@@ -22,5 +26,13 @@ class User < ActiveRecord::Base
   def create_user_profile
     build_profile
     profile.save(validates: false)
+  end
+
+  def set_role!
+    if User.count == 1
+      add_role(:admin)
+    else
+      add_role(:user)
+    end
   end
 end
