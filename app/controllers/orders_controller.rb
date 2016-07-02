@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = weekday.orders.build(order_params)
+    @order.user = current_user
 
     if @order.save
       flash[:success] = 'Order was created.'

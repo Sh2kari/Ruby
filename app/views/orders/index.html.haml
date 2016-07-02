@@ -8,6 +8,9 @@
       %br
     %br
     %p
+      %strong User:
+      = order.user.email
+      %br
       %strong Total Price:
       = number_to_currency(order.total_price, locale: :ru)
     %hr

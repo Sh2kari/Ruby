@@ -30,3 +30,14 @@ products = Product.create([{ title: 'Vegan Chickpea Soup', price: '10', weekday_
                            { title: 'Cantaloupe Smoothie', price: '15', weekday_id: 1, category_id: 3 },
                            { title: 'Peach and Papaya Smoothie', price: '10', weekday_id: 1, category_id: 3 }
                           ])
+
+products = Product.create([{ title: 'Soup', price: '10', weekday_id: 2, category_id: 1 },
+                           { title: 'Tortelli', price: '15', weekday_id: 2, category_id: 1 },
+                           { title: 'Tomatoes', price: '20', weekday_id: 2, category_id: 1 },
+                           { title: 'Seeds', price: '30', weekday_id: 2, category_id: 2 },
+                           { title: 'Cake', price: '40', weekday_id: 2, category_id: 2 },
+                           { title: 'Biscuits', price: '50', weekday_id: 2, category_id: 2 },
+                           { title: 'Julep', price: '10', weekday_id: 2, category_id: 3 },
+                           { title: 'Smoothie', price: '15', weekday_id: 2, category_id: 3 },
+                           { title: 'Smoothie', price: '10', weekday_id: 2, category_id: 3 }
+                          ])
