@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160702181731) do
+ActiveRecord::Schema.define(version: 20160704185426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160702181731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.decimal  "total"
   end
 
   add_index "orders", ["weekday_id"], name: "index_orders_on_weekday_id", using: :btree
@@ -105,8 +106,10 @@ ActiveRecord::Schema.define(version: 20160702181731) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.integer  "organization_id"
+    t.string   "authentication_token"
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: :cascade do |t|
@@ -121,6 +124,7 @@ ActiveRecord::Schema.define(version: 20160702181731) do
     t.string   "cover"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "date"
   end
 
   add_foreign_key "order_products", "orders"

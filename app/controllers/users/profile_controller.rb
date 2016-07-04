@@ -2,7 +2,7 @@ class Users::ProfileController < Users::BaseController
   authorize_resource only: :index
 
   def index
-    @organizations = Organization.all.includes(:users).includes(users: :profile)
+    @organizations = Organization.all.includes(users: :profile)
   end
 
   def edit

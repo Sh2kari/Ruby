@@ -11,13 +11,13 @@ organizations = Organization.create([{ name: 'JetRuby' },
                                      { name: 'Yandex' }
                                     ])
 
-weekdays = Weekday.create([{ title: 'Monday',    cover: File.open(Rails.root + 'app/assets/images/1.jpg') },
-                           { title: 'Tuesday',   cover: File.open(Rails.root + 'app/assets/images/2.jpg') },
-                           { title: 'Wednesday', cover: File.open(Rails.root + 'app/assets/images/3.jpg') },
-                           { title: 'Thursday',  cover: File.open(Rails.root + 'app/assets/images/4.jpg') },
-                           { title: 'Friday',    cover: File.open(Rails.root + 'app/assets/images/5.jpg') },
-                           { title: 'Saturday',  cover: File.open(Rails.root + 'app/assets/images/6.jpg') },
-                           { title: 'Sunday',    cover: File.open(Rails.root + 'app/assets/images/7.jpg') }
+weekdays = Weekday.create([{ title: 'Monday',    cover: File.open(Rails.root + 'app/assets/images/1.jpg'), date: (Date.today.at_beginning_of_week).strftime("%d %B %Y") },
+                           { title: 'Tuesday',   cover: File.open(Rails.root + 'app/assets/images/2.jpg'), date: (Date.today.at_beginning_of_week+1.day).strftime("%d %B %Y") },
+                           { title: 'Wednesday', cover: File.open(Rails.root + 'app/assets/images/3.jpg'), date: (Date.today.at_beginning_of_week+2.day).strftime("%d %B %Y")  },
+                           { title: 'Thursday',  cover: File.open(Rails.root + 'app/assets/images/4.jpg'), date: (Date.today.at_beginning_of_week+3.day).strftime("%d %B %Y")  },
+                           { title: 'Friday',    cover: File.open(Rails.root + 'app/assets/images/5.jpg'), date: (Date.today.at_beginning_of_week+4.day).strftime("%d %B %Y")  },
+                           { title: 'Saturday',  cover: File.open(Rails.root + 'app/assets/images/6.jpg'), date: (Date.today.at_beginning_of_week+5.day).strftime("%d %B %Y")  },
+                           { title: 'Sunday',    cover: File.open(Rails.root + 'app/assets/images/7.jpg'), date: Date.today.at_end_of_week.strftime("%d %B %Y") }
                           ])
 
 categories = Category.create([{ name: 'First course' },
@@ -45,4 +45,59 @@ products = Product.create([{ title: 'Soup', price: '10', weekday_id: 2, category
                            { title: 'Julep', price: '10', weekday_id: 2, category_id: 3 },
                            { title: 'Smoothie', price: '15', weekday_id: 2, category_id: 3 },
                            { title: 'Smoothie', price: '10', weekday_id: 2, category_id: 3 }
+                          ])
+
+products = Product.create([{ title: 'Soup', price: '10', weekday_id: 3, category_id: 1 },
+                           { title: 'Tortelli', price: '15', weekday_id: 3, category_id: 1 },
+                           { title: 'Tomatoes', price: '20', weekday_id: 3, category_id: 1 },
+                           { title: 'Seeds', price: '30', weekday_id: 3, category_id: 2 },
+                           { title: 'Cake', price: '40', weekday_id: 3, category_id: 2 },
+                           { title: 'Biscuits', price: '50', weekday_id: 3, category_id: 2 },
+                           { title: 'Julep', price: '10', weekday_id: 3, category_id: 3 },
+                           { title: 'Smoothie', price: '15', weekday_id: 3, category_id: 3 },
+                           { title: 'Smoothie', price: '10', weekday_id: 3, category_id: 3 }
+                          ])
+
+products = Product.create([{ title: 'Soup', price: '10', weekday_id: 4, category_id: 1 },
+                           { title: 'Tortelli', price: '15', weekday_id: 4, category_id: 1 },
+                           { title: 'Tomatoes', price: '20', weekday_id: 4, category_id: 1 },
+                           { title: 'Seeds', price: '30', weekday_id: 4, category_id: 2 },
+                           { title: 'Cake', price: '40', weekday_id: 4, category_id: 2 },
+                           { title: 'Biscuits', price: '50', weekday_id: 4, category_id: 2 },
+                           { title: 'Julep', price: '10', weekday_id: 4, category_id: 3 },
+                           { title: 'Smoothie', price: '15', weekday_id: 4, category_id: 3 },
+                           { title: 'Smoothie', price: '10', weekday_id: 4, category_id: 3 }
+                          ])
+
+products = Product.create([{ title: 'Soup', price: '10', weekday_id: 5, category_id: 1 },
+                           { title: 'Tortelli', price: '15', weekday_id: 5, category_id: 1 },
+                           { title: 'Tomatoes', price: '20', weekday_id: 5, category_id: 1 },
+                           { title: 'Seeds', price: '30', weekday_id: 5, category_id: 2 },
+                           { title: 'Cake', price: '40', weekday_id: 5, category_id: 2 },
+                           { title: 'Biscuits', price: '50', weekday_id: 5, category_id: 2 },
+                           { title: 'Julep', price: '10', weekday_id: 5, category_id: 3 },
+                           { title: 'Smoothie', price: '15', weekday_id: 5, category_id: 3 },
+                           { title: 'Smoothie', price: '10', weekday_id: 5, category_id: 3 }
+                          ])
+
+products = Product.create([{ title: 'Soup', price: '10', weekday_id: 6, category_id: 1 },
+                           { title: 'Tortelli', price: '15', weekday_id: 6, category_id: 1 },
+                           { title: 'Tomatoes', price: '20', weekday_id: 6, category_id: 1 },
+                           { title: 'Seeds', price: '30', weekday_id: 6, category_id: 2 },
+                           { title: 'Cake', price: '40', weekday_id: 6, category_id: 2 },
+                           { title: 'Biscuits', price: '50', weekday_id: 6, category_id: 2 },
+                           { title: 'Julep', price: '10', weekday_id: 6, category_id: 3 },
+                           { title: 'Smoothie', price: '15', weekday_id: 6, category_id: 3 },
+                           { title: 'Smoothie', price: '10', weekday_id: 6, category_id: 3 }
+                          ])
+
+products = Product.create([{ title: 'Soup', price: '10', weekday_id: 7, category_id: 1 },
+                           { title: 'Tortelli', price: '15', weekday_id: 7, category_id: 1 },
+                           { title: 'Tomatoes', price: '20', weekday_id: 7, category_id: 1 },
+                           { title: 'Seeds', price: '30', weekday_id: 7, category_id: 2 },
+                           { title: 'Cake', price: '40', weekday_id: 7, category_id: 2 },
+                           { title: 'Biscuits', price: '50', weekday_id: 7, category_id: 2 },
+                           { title: 'Julep', price: '10', weekday_id: 7, category_id: 3 },
+                           { title: 'Smoothie', price: '15', weekday_id: 7, category_id: 3 },
+                           { title: 'Smoothie', price: '10', weekday_id: 7, category_id: 3 }
                           ])

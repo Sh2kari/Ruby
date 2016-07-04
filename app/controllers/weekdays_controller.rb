@@ -18,6 +18,6 @@ class WeekdaysController < ApplicationController
   private
 
   def weekday_params
-    params.require(:weekday).permit(:title, :cover)
+    params.require(:weekday).permit(:title, :cover, :date)
   end
 end

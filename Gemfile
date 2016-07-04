@@ -31,6 +31,9 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 
+gem 'responders'
+gem 'active_model_serializers'
+
 gem 'rubocop', '~> 0.37.2'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
