@@ -1,4 +1,5 @@
 class Api::V1::BaseController < ActionController::Base
+  before_filter :authenticate_user!
   respond_to :json
 
   serialization_scope :view_context
@@ -36,7 +37,14 @@ class Api::V1::BaseController < ActionController::Base
     render json: response, status: 500
   end
 
-  def respond_with_not_authorized
-    render json: { success: false, message: 'Not Authorized' }, status: 401
+  private
+
+  def authenticate_user!
+    user = User.find_by(authentication_token: params[:auth_token])
+    if user.present?
+      sign_in user, store: false
+    else
+      render json: { success: false, message: 'Not Authorized' }, status: 401
+    end
   end
 end

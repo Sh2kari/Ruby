@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20160704185426) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "weekday_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.decimal  "total"
+    t.decimal  "total_price"
   end
 
   add_index "orders", ["weekday_id"], name: "index_orders_on_weekday_id", using: :btree
