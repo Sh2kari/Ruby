@@ -8,7 +8,7 @@ class WeekdaysController < ApplicationController
 
     if @weekday.save
       flash[:success] = 'Weekday was created.'
-      redirect_to @weekday
+      redirect_to root_path
     else
       flash[:error] = 'Weekday was not created.'
       redirect_to root_path

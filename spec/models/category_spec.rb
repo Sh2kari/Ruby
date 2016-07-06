@@ -1,0 +1,15 @@
+require 'spec_helper'
+
+describe Category, type: :model do
+  before { @category = FactoryGirl.build(:category) }
+
+  subject { @category }
+
+  it { should respond_to(:name) }
+
+  it { should be_valid }
+
+  it { should validate_presence_of(:name) }
+
+  it { should have_many(:products) }
+end

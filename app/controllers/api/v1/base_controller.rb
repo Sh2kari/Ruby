@@ -7,7 +7,7 @@ class Api::V1::BaseController < ActionController::Base
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: :respond_with_internal_error
 
-    rescue_from CanCan::AccessDenied, NotAuthorized, with: :respond_with_not_authorized
+    rescue_from CanCan::AccessDenied, with: :respond_with_not_authorized
 
     rescue_from ActiveRecord::RecordNotFound,
                 ActionController::RoutingError,

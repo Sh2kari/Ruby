@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :weekdays, only: :index do
+  resources :weekdays, only: [:index, :create] do
     resources :products, only: [:new, :create]
     resources :orders, only: [:index, :new, :create]
   end

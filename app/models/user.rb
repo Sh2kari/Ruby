@@ -9,16 +9,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :twitter]
 
-  before_save  :ensure_authentication_token
-  after_create :create_user_profile
-  after_create :set_role!
+  before_save   :ensure_authentication_token
+  before_create :generate_authentication_token
+  after_create  :create_user_profile
+  after_create  :set_role!
 
   belongs_to :organization
 
   has_one :profile, dependent: :destroy
   has_many :social_profiles
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   accepts_nested_attributes_for :profile
 

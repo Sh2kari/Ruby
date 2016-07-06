@@ -11,6 +11,7 @@ gem 'rails_12factor', '0.0.2'
 gem 'simple_form', '~> 3.2'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.4'
+gem 'fog'
 
 gem 'haml', '~> 4.0'
 gem 'html2haml'
@@ -52,7 +53,7 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'capybara-webkit'

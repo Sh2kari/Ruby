@@ -20,6 +20,7 @@ weekdays = Weekday.create([{ title: 'Monday',    cover: File.open(Rails.root + '
                            { title: 'Sunday',    cover: File.open(Rails.root + 'app/assets/images/7.jpg'), date: Date.today.at_end_of_week.strftime("%d %B %Y") }
                           ])
 
+
 categories = Category.create([{ name: 'First course' },
                               { name: 'Second course' },
                               { name: 'Drinks' }

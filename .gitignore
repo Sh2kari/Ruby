@@ -22,6 +22,6 @@
 .ruby-version
 
 public/system
-public/uploads
+
 
 config/database.yml
